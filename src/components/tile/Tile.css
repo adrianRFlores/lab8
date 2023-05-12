@@ -1,0 +1,13 @@
+.tileContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.tileContainer img {
+    transform: scale(3);
+    background-color: transparent;
+    filter: drop-shadow(0px 0px 2px rgb(0,0,0,0.6))
+}

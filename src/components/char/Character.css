@@ -1,0 +1,10 @@
+.CharacterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CharacterContainer img {
+    background-color: transparent;
+    filter: drop-shadow(0px 0px 2px rgb(0,0,0,0.6))
+}
