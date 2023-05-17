@@ -1,12 +1,12 @@
 import React from "react"
-import "./NumInput.module.css"
+import "./Input.css"
 
 const Input = ({ id, label, min, max }) => {
   return (
-    <div className="formContainer">
+    <div className="singleInputContainer">
       <label
-        for={id}
-        class="formLabel">
+        htmlFor={id}
+        className="formLabel">
         {label}
       </label>
       <input

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  background-color: #474A48;
+  font-family: 'JetBrains Mono', monospace;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.8fr 1.4fr;
+}
+
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #2C302E;
+  width: 100%;
+  max-width: 75%;
+  box-shadow: black 0px 5px 20px -6px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+h1 {
+  padding: 5px 5px;
+  border: 0;
+  border-radius: 10px;
+  border-bottom: 2px solid #63926C;
+  border-top: 2px solid #63926C;
+  margin: 0px auto;
+}
+
+.numInputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.mazeStyle {
+  border-radius: 20px;
+  background-color: #2C302E;
+  width: 100%;
+  max-width: 95%;
+  box-shadow: black 0px 5px 20px -6px;
+  margin: 50px auto;
+  padding: 30px;
+}

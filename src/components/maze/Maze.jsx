@@ -3,23 +3,24 @@ import Tile from '../Tile/Tile'
 import Character from '../char/Character'
 import './Maze.css'
 
-const Maze = ({dimX = 10, dimY = 10}) => {
+const Maze = ({dimX = 5, dimY = 5, theme = "spriteworld", skin = "knight"}) => {
 
-    const [maze, setMaze] = useState()
+    const [maze, setMaze] = useState([])
     const [lookDirection, setLookDirection] = useState('Front')
     const [winState, setWinState] = useState(false)
     let playerPos = [0,0]
-    let theme = 'godlands'
 
-    const getMaze = async () => {
+    const getMaze = () => {
         fetch(`https://maze.uvgenios.online/?type=json&w=${dimX}&h=${dimY}`)
-        .then((response) => {return response.json()})
-        .then((responseData) => {return responseData})
-        .then((data) => {console.log(data); setMaze(data)})
+        .then((response) => { return response.json()})
+        .then((data) => {setMaze(data)})
         .catch((error) => {console.log(error)})
     }
 
-    useEffect(() => {getMaze(); setWinState(false)},[])
+    useEffect(() => {
+         getMaze()
+         setWinState(false)
+        }, [])
 
     const getDestinationTile = (col, row) => {
         let destination = maze[col][row]
@@ -35,7 +36,6 @@ const Maze = ({dimX = 10, dimY = 10}) => {
 
     const moveHandler = (event) => {
         if(!winState) {
-            console.log(event.key)
             let old = [...maze]
             if(event.key === "ArrowUp"){
                 switch(getDestinationTile(playerPos[0]-1, playerPos[1])){
@@ -116,46 +116,79 @@ const Maze = ({dimX = 10, dimY = 10}) => {
         }
     }
 
+    const populateGrid = () => {
+        maze?.map(
+            (row, x) => {
+                return (
+                    row.map((tile, y) => {
+                        if(tile === '|' || tile === '+' || tile === '-'){
+                            return (
+                                <Tile theme={theme} obstacle={true}/>
+                            )
+                        }
+                        else if(tile === ' ') {
+                            return (
+                                <Tile theme={theme} obstacle={false}/>
+                            )
+                        }
+                        else if(tile === 'p'){
+                            playerPos = [x,y]
+                            return (
+                                <Tile theme={theme} obstacle={false}>
+                                    <Character skin={skin} direction={lookDirection}/>
+                                </Tile>
+                            )
+                        }
+                        else if(tile === 'g'){
+                            return (
+                                <Tile theme={theme} obstacle={false}>
+                                    <Character skin='sorcerer' direction='Back'/>
+                                </Tile>
+                            )
+                        }
+                    })
+                )
+            } 
+        )
+    }
+
     return (
         <div className='maze' tabIndex='0'
         onKeyDown={moveHandler}
         style = {{display: 'grid', gridTemplateColumns: `repeat(${dimX*3 + 1}, 1fr)`, gridTemplateRows: `repeat(${dimY*2 + 1}, 1fr)`}}>
-            {
-                maze.map(
-                    (row, x) => {
-                        return (
-                            row.map((tile, y) => {
-                                if(tile === '|' || tile === '+' || tile === '-'){
-                                    return (
-                                        <Tile theme={theme} obstacle={true}/>
-                                    )
-                                }
-                                else if(tile === ' ') {
-                                    return (
-                                        <Tile theme={theme} obstacle={false}/>
-                                    )
-                                }
-                                else if(tile === 'p'){
-                                    playerPos = [x,y]
-                                    console.log(playerPos)
-                                    return (
-                                        <Tile theme={theme} obstacle={false}>
-                                            <Character skin='huntress' direction={lookDirection}/>
-                                        </Tile>
-                                    )
-                                }
-                                else if(tile === 'g'){
-                                    return (
-                                        <Tile theme={theme} obstacle={false}>
-                                            <Character skin='sorcerer' direction='Back'/>
-                                        </Tile>
-                                    )
-                                }
-                            })
-                        )
-                    } 
+            {maze?.map(
+            (row, x) => {
+                return (
+                    row.map((tile, y) => {
+                        if(tile === '|' || tile === '+' || tile === '-'){
+                            return (
+                                <Tile theme={theme} obstacle={true}/>
+                            )
+                        }
+                        else if(tile === ' ') {
+                            return (
+                                <Tile theme={theme} obstacle={false}/>
+                            )
+                        }
+                        else if(tile === 'p'){
+                            playerPos = [x,y]
+                            return (
+                                <Tile theme={theme} obstacle={false}>
+                                    <Character skin={skin} direction={lookDirection}/>
+                                </Tile>
+                            )
+                        }
+                        else if(tile === 'g'){
+                            return (
+                                <Tile theme={theme} obstacle={false}>
+                                    <Character skin='sorcerer' direction='Back'/>
+                                </Tile>
+                            )
+                        }
+                    })
                 )
-            }
+            } 
+        )}
         </div>
     )
 
