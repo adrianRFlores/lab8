@@ -1,0 +1,14 @@
+.btn {
+    background-color: transparent;
+}
+
+.arrow {
+    transition: 0.2s ease-in;
+}
+.y {
+    transform: rotate(90deg);
+    color: blue;
+}
+.n {
+    transform: rotate(-90deg);
+}

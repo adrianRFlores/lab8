@@ -3,7 +3,7 @@ import Tile from '../Tile/Tile'
 import Character from '../char/Character'
 import './Maze.css'
 
-const Maze = ({dimX = 5, dimY = 5, theme = "spriteworld", skin = "knight"}) => {
+const Maze = ({dimX = 5, dimY = 5, theme = "forest", skin = "knight"}) => {
 
     const [maze, setMaze] = useState([])
     const [lookDirection, setLookDirection] = useState('Front')
