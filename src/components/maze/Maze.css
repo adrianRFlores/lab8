@@ -5,5 +5,5 @@
 }
 
 .maze:focus {
-
+    outline: none;
 }

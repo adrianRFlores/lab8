@@ -1,14 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 .btn {
+    font-size: inherit;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-family: 'JetBrains Mono', monospace;
     background-color: transparent;
+    align-items: center;
+    border: 0;
+    color: #9b9b9b;
+    display: flex;
+    gap: 15px;
+    transition: 0.2s;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.btn:hover, .btn.y {
+    color: #63926C;
+    background-color: #232524;
+}
+
+.btn.y:hover {
+    background-color: #23252496;
 }
 
 .arrow {
-    transition: 0.2s ease-in;
+    width: 1.8%;
+    height: 10%;
 }
-.y {
+
+.arrow.y {
+    transform: rotate(0deg);
+    color: #63926C;
+}
+
+.arrow.n {
     transform: rotate(90deg);
-    color: blue;
-}
-.n {
-    transform: rotate(-90deg);
 }

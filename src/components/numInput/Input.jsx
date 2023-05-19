@@ -1,7 +1,7 @@
 import React from "react"
 import "./Input.css"
 
-const Input = ({ id, label, min, max }) => {
+const Input = ({ id, label, min, max, changeHandler}) => {
   return (
     <div className="singleInputContainer">
       <label
@@ -14,7 +14,8 @@ const Input = ({ id, label, min, max }) => {
         name={id}
         min={min}
         max={max}
-        placeholder={min.concat(" - ", max)}></input>
+        placeholder={min.concat(" - ", max)}
+        onChange={changeHandler}></input>
     </div>
   )
 }

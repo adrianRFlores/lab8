@@ -3,12 +3,13 @@ import Tile from '../Tile/Tile'
 import Character from '../char/Character'
 import './Maze.css'
 
-const Maze = ({dimX = 5, dimY = 5, theme = "forest", skin = "knight"}) => {
+const Maze = ({dimX, dimY, theme, skin}) => {
 
     const [maze, setMaze] = useState([])
     const [lookDirection, setLookDirection] = useState('Front')
     const [winState, setWinState] = useState(false)
     let playerPos = [0,0]
+    let userReload = true
 
     const getMaze = () => {
         fetch(`https://maze.uvgenios.online/?type=json&w=${dimX}&h=${dimY}`)
@@ -21,6 +22,18 @@ const Maze = ({dimX = 5, dimY = 5, theme = "forest", skin = "knight"}) => {
          getMaze()
          setWinState(false)
         }, [])
+
+    useEffect(() => {
+        getMaze()
+        setWinState(false)
+    }, [dimX, dimY])
+
+    useEffect(() => {
+        if(winState && userReload){
+            getMaze()
+            setWinState(false)
+        }
+    }, [winState])
 
     const getDestinationTile = (col, row) => {
         let destination = maze[col][row]
@@ -114,42 +127,6 @@ const Maze = ({dimX = 5, dimY = 5, theme = "forest", skin = "knight"}) => {
                 }      
             }
         }
-    }
-
-    const populateGrid = () => {
-        maze?.map(
-            (row, x) => {
-                return (
-                    row.map((tile, y) => {
-                        if(tile === '|' || tile === '+' || tile === '-'){
-                            return (
-                                <Tile theme={theme} obstacle={true}/>
-                            )
-                        }
-                        else if(tile === ' ') {
-                            return (
-                                <Tile theme={theme} obstacle={false}/>
-                            )
-                        }
-                        else if(tile === 'p'){
-                            playerPos = [x,y]
-                            return (
-                                <Tile theme={theme} obstacle={false}>
-                                    <Character skin={skin} direction={lookDirection}/>
-                                </Tile>
-                            )
-                        }
-                        else if(tile === 'g'){
-                            return (
-                                <Tile theme={theme} obstacle={false}>
-                                    <Character skin='sorcerer' direction='Back'/>
-                                </Tile>
-                            )
-                        }
-                    })
-                )
-            } 
-        )
     }
 
     return (

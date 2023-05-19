@@ -2,6 +2,7 @@
 
 .selectorContainer {
     display: flex;
+    flex-direction: column;
 }
 
 .dropdown.closed {
@@ -12,26 +13,28 @@
     font-family: 'JetBrains Mono', monospace;
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
     gap: 10px;
+    background-color: #232524;
+    border-radius: 10px;
+    padding: 10px;
+    width: 65%;
+
 }
 
 .option {
+    outline: none;
     padding: 5px 0px 5px 5px;
     min-width: 150px;
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 10%;
+    gap: 5%;
     font-family: 'JetBrains Mono', monospace;
     color: #9b9b9b;
     background-color: transparent;
     border: 0;
     border-radius: 10px;
     transition: 0.15s;
-}
-
-.option:focus {
 }
 
 .option.n:hover {
