@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+.pillHolder {
+    font-size: inherit;
+    font-family: 'JetBrains mono', monospace;
+    width: 100%;
+    max-width: 30%;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-size: cover;
+    color: white;
+    padding: 8px 5px;
+    transition: 0.25s;
+}
+
+.pillHolder.n {
+    background-color: rgb(195, 195, 195);
+    background-blend-mode: multiply;
+}
+
+.pillHolder.n:hover {
+    background-color: none;
+    background-blend-mode: normal;
+}
+
+.pillHolder.y {
+    border: 2px solid white;
+    background-color: none;
+    background-blend-mode: normal;
+}
+
+.pills {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

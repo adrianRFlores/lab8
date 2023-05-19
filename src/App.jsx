@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Input from './components/numInput/Input'
 import CharSelector from './components/charSelector/CharSelector'
 import Maze from './components/maze/Maze'
+import Pills from './components/pills/Pills'
 import './App.css'
 
 function App() {
@@ -12,6 +13,12 @@ function App() {
   const getCharSkin = (option) => {
     let temp = [...formData]
     temp[3] = option
+    setFormData(temp)
+  }
+
+  const getMazeTheme = (option) => {
+    let temp = [...formData]
+    temp[2] = option
     setFormData(temp)
   }
 
@@ -46,7 +53,10 @@ function App() {
           <div className='charSelectorContainer'>
             <CharSelector option1='knight' option2='sorcerer' option3='huntress' callback={getCharSkin}/>
           </div>
-          <div className='pillContainer'></div>
+          <div className='pillContainer'>
+            <h3>Tema</h3>
+            <Pills themes={['forest', 'godlands', 'spriteworld']} callback={getMazeTheme}/>
+          </div>
         </div>
       </div>
       <div className='mazeStyle'>

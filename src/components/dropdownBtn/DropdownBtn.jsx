@@ -1,5 +1,4 @@
 import './DropdownBtn.css'
-import rightarrow from './rightarrow.svg'
 
 const DropdownBtn = ({ active, text, clickHandler, current}) => {
     return (

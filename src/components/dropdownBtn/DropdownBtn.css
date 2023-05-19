@@ -32,7 +32,7 @@
 }
 
 .arrow.y {
-    transform: rotate(0deg);
+    transform: rotate(-90deg);
     color: #63926C;
 }
 

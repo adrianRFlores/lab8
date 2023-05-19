@@ -55,3 +55,8 @@ h1 {
   margin: 50px auto;
   padding: 30px;
 }
+
+h3 {
+  color: #9b9b9b;
+  font-size: inherit;
+}
