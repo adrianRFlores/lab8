@@ -158,7 +158,7 @@ const Maze = ({dimX, dimY, theme, skin}) => {
                         else if(tile === 'g'){
                             return (
                                 <Tile theme={theme} obstacle={false}>
-                                    <Character skin='sorcerer' direction='Back'/>
+                                    <img className="bag" src="/whitebag.png"/>
                                 </Tile>
                             )
                         }
