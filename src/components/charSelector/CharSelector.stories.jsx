@@ -1,30 +1,26 @@
-import CharSelector from "./CharSelector"
+/* eslint-disable react/jsx-props-no-spreading */
+import CharSelector from './CharSelector'
 
-let temp = 'knight'
-
-const getCharSkin = (option) => {
-    temp = option
-  }
+const getCharSkin = (option) => {}
 
 export default {
-    title: "Buttons/CharSelector",
-    component: CharSelector,
-    tags: ["autodocs"],
-    args: {
-      option1: 'knight',
-      option2: 'sorcerer',
-      option3: 'huntress',
-      callback: {getCharSkin},
-    },
-  }
-  
-
-  const Template = (args) => <CharSelector {...args} />
-  
-  export const CharSelectorClosed = Template.bind({})
-  CharSelectorClosed.args = {
+  title: 'Buttons/CharSelector',
+  component: CharSelector,
+  tags: ['autodocs'],
+  args: {
     option1: 'knight',
     option2: 'sorcerer',
     option3: 'huntress',
-    callback: {getCharSkin},
-  }
+    callback: { getCharSkin },
+  },
+}
+
+const Template = (args) => <CharSelector {...args} />
+
+export const CharSelectorClosed = Template.bind({})
+CharSelectorClosed.args = {
+  option1: 'knight',
+  option2: 'sorcerer',
+  option3: 'huntress',
+  callback: { getCharSkin },
+}

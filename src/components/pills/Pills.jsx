@@ -1,24 +1,44 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import Pill from './Pill'
 import './Pill.css'
 
-const Pills = ({ themes, callback }) => {
+function Pills({
+  theme1, theme2, theme3, callback,
+}) {
+  const [current, setCurrent] = useState(theme1)
 
-    const [current, setCurrent] = useState(themes[0])
+  const getOption = (option) => {
+    callback(option)
+    setCurrent(option)
+  }
 
-    const getOption = (option) => {
-        callback(option)
-        setCurrent(option)
-    }
+  return (
+    <div className="pills">
+      <Pill
+        theme={theme1}
+        active={current === theme1}
+        clickHandler={getOption}
+      />
+      <Pill
+        theme={theme2}
+        active={current === theme2}
+        clickHandler={getOption}
+      />
+      <Pill
+        theme={theme3}
+        active={current === theme3}
+        clickHandler={getOption}
+      />
+    </div>
+  )
+}
 
-    return (
-        <div className="pills">
-            <Pill theme={themes[0]} active={current === themes[0]} clickHandler={getOption}/>
-            <Pill theme={themes[1]} active={current === themes[1]} clickHandler={getOption}/>
-            <Pill theme={themes[2]} active={current === themes[2]} clickHandler={getOption}/>
-        </div>
-    )
-
+Pills.propTypes = {
+  theme1: PropTypes.string.isRequired,
+  theme2: PropTypes.string.isRequired,
+  theme3: PropTypes.string.isRequired,
+  callback: PropTypes.func.isRequired,
 }
 
 export default Pills

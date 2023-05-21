@@ -1,13 +1,20 @@
+.mazeWrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .maze {
-    /*box-shadow: black 0px 5px 20px -6px;*/
-    width: 100%;
-    margin: 1%;
+  width: 95%;
+  margin: 1%;
 }
 
 .maze:focus {
-    outline: none;
+  outline: none;
 }
 
 .bag {
-    transform: scale(0.6);
+  transform: scale(0.65);
 }

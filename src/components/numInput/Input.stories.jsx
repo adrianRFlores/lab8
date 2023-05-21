@@ -1,9 +1,10 @@
-import Input from "./Input"
+/* eslint-disable react/jsx-props-no-spreading */
+import Input from './Input'
 
 export default {
-  title: "NumInput/Input",
+  title: 'NumInput/Input',
   component: Input,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     id: 'inputID',
     label: 'Numeric Input',
@@ -21,4 +22,3 @@ NumInput.args = {
   min: '1',
   max: '100',
 }
-

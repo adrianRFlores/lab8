@@ -1,9 +1,10 @@
-import DropdownBtn from "./DropdownBtn"
+/* eslint-disable react/jsx-props-no-spreading */
+import DropdownBtn from './DropdownBtn'
 
 export default {
-  title: "Buttons/DropdownBtn",
+  title: 'Buttons/DropdownBtn',
   component: DropdownBtn,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   args: {
     active: false,
     text: 'Character skin',
@@ -15,13 +16,13 @@ const Template = (args) => <DropdownBtn {...args} />
 
 export const DropdownBtnActive = Template.bind({})
 DropdownBtnActive.args = {
-    active: true,
-    text: 'Character skin',
-    current: 'knight',
+  active: true,
+  text: 'Character skin',
+  current: 'knight',
 }
 export const DropdownBtnDefault = Template.bind({})
 DropdownBtnDefault.args = {
-    active: false,
-    text: 'Character skin',
-    current: 'knight',
+  active: false,
+  text: 'Character skin',
+  current: 'knight',
 }
